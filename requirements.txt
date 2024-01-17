@@ -1,0 +1,4 @@
+altair
+pydeck
+python-dotenv
+streamlit
