@@ -125,14 +125,14 @@ st.set_page_config(page_title="Automatic Prompt Generator", page_icon="📈")
 st.markdown("# Automatic Prompt Generator")
 #st.sidebar.header("Automatic Prompt Generator")
 
-st.text_area('Ask for a prompt', value="", label_visibility="visible")
+query = st.text_area('Ask for a prompt', value="", label_visibility="visible")
 
-input = st.empty()
-txt = input.text_input("Insert text:")
-bt = st.button("Text01")
+out_put = generate_directive(query)
+
+bt = st.button("Submit")
 
 if bt:
-    txt = "Text01"
-    input.text_input("Insert text:", value=txt)
+    input = st.empty()
+    txt = input.text_input(f"{out_put}")
 
 st.write(txt)
