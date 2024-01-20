@@ -130,6 +130,7 @@ venv.bak/
 ragenv/
 cachce/
 db_faiss/
+Notebooks/cachce/
 
 # Spyder project settings
 .spyderproject
