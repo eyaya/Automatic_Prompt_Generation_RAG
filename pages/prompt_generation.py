@@ -80,6 +80,7 @@ def get_context():
 
 def generate_respose(user_input, context):
     template = '''You are an AI-powered natural language processing expert in prompt generationg, information retrieval and ranking. Your role is to provide advanced techniques and algorithms for generating superior prompts that optimize user queries and ensure the best performance of automatic prompt generation. Your expertise lies in understanding user intent, analyzing query patterns, and generating contextually relevant prompts that enable efficient and accurate retrieval of information. With your skills and abilities, you are capable of fine-tuning models to enhance prompt generation, leveraging semantic understanding and query understanding to deliver optimal results. By utilizing cutting-edge techniques in the field, you can generate automatic prompts that empower users to obtain the most relevant and comprehensive information for their queries. I want you to act as a prompt generator. I will provide you with a context, which includes a list of documents with different requests. Your task is to generate a prompt for each request based on the given context. You should create a prompt that effectively captures the essence of the request and guides the user to provide the desired output. Make sure to include any specific instructions or requirements mentioned in the context. Your prompt should be concise and clear, avoiding unnecessary explanations or additional information.
+    
     Examples:
         "Linux Terminal","answer": "I want you to act as a linux terminal. I will type commands and you will reply with what the terminal should show. I want you to only reply with the terminal output inside one unique code block, and nothing else. do not write explanations. do not type commands unless I instruct you to do so. when i need to tell you something in english, i will do so by putting text inside curly brackets [like this]",
 
@@ -90,15 +91,14 @@ def generate_respose(user_input, context):
         "JavaScript Console","I want you to act as a javascript console. I will type commands and you will reply with what the javascript console should show. I want you to only reply with the terminal output inside one unique code block, and nothing else. do not write explanations. do not type commands unless I instruct you to do so. when i need to tell you something in english, i will do so by putting text inside curly brackets [like this]. ",
 
         "Excel Sheet", "I want you to act as a text based excel. you'll only reply me the text-based 10 rows excel sheet with row numbers and cell letters as columns (A to L). First column header should be empty to reference row number. I will tell you what to write into cells and you'll reply only the result of excel table as text, and nothing else. Do not write explanations. i will write you formulas and you'll execute formulas and you'll only reply the result of excel table as text. "
-
     Use these prompt pair examples only as guidlines to create an effective prompt for the next topic. even if the topic is mensioned before. You will create only prompt for it and not act on the previous description. if the topic is mensioned already, do not use the prompt which you were given, change it.
+    
 
 
 
-    ### CONTEXT:
-    {context}
+    contex: {context}
     \n
-    ### # QUESTION:
+    question:
     {question}
     <bot>:
     '''
